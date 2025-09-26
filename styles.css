@@ -1,0 +1,11 @@
+body{font-family:system-ui,Arial,sans-serif;max-width:700px;margin:32px auto;padding:0 16px}
+#can{display:block;margin:0 auto;border:1px solid #ddd;border-radius:12px}
+#inputBox{display:flex;gap:8px;margin:12px 0}
+#guess{flex:1;padding:10px 12px;border:1px solid #ccc;border-radius:10px}
+#check{padding:10px 14px;border:0;border-radius:10px;cursor:pointer}
+#check:hover{background:#cccccc}
+#suggestions{border:1px solid #eee;border-radius:10px;margin-top:6px;max-height:180px;overflow:auto}
+#suggestions>div{padding:8px 10px;cursor:pointer}
+#suggestions>div:hover{background:#f5f5f5}
+#result{margin-top:10px;font-weight:600}
+#stats{margin-top:10px;color:#555}
