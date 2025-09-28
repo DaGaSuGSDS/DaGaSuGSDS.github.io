@@ -96,22 +96,20 @@
 		db.filter(([name]) => (
 			!failed.includes(name) && check_sentence_value(name, value)
 		)).forEach(([name]) => {
-			if(name.toLowerCase() != value){
-				const div = document.createElement("div");
-				div.innerText = name;
-				div.onclick = () => {
-					input.value = name;
-					check();
-				};
-				div.onmouseenter = () => {
-					highlighted_suggestion = Array.from(suggestion_list).indexOf(div);
-					highlight_suggestion();
-				};
-				
-				if(top_suggestion == "") top_suggestion = name;
-				suggestions.appendChild(div);
-				suggestion_list.push(div);
-			}
+			const div = document.createElement("div");
+			div.innerText = name;
+			div.onclick = () => {
+				input.value = name;
+				check();
+			};
+			div.onmouseenter = () => {
+				highlighted_suggestion = Array.from(suggestion_list).indexOf(div);
+				highlight_suggestion();
+			};
+			
+			if(top_suggestion == "") top_suggestion = name;
+			suggestions.appendChild(div);
+			suggestion_list.push(div);
 		});
 	}
 	
