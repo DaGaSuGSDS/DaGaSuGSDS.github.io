@@ -1,17 +1,22 @@
-body{ font-family:system-ui, Arial,sans-serif; max-width:700px; margin:32px auto; padding:0 16px; }
-#can{ display:block; margin:0 auto; border:1px solid #ddd; border-radius:12px; }
-#inputBox{ display:flex; gap:8px; margin:12px 0; }
-#guess{ flex:1; padding:10px 12px; border:1px solid #ccc; border-radius:10px; }
-#check{ padding:10px 14px; border:0; border-radius:10px; cursor:pointer; }
-#check:hover{ background:#cccccc; }
-#suggestions{ border:1px solid #eee; border-radius:10px; margin-top:6px; max-height:180px; overflow:auto; }
-#suggestions>div{ padding:8px 10px; cursor:pointer; }
-/*#suggestions>div:hover{ background:#f5f5f5; }*/
-#suggestions>div.selected{ background: #e6f0ff; outline: 1px solid #cfe0ff; }
-#result{ margin-top:10px; font-weight:600; }
-#stats{ margin-top:10px; color:#555; }
-#overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0);
-display: flex; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.8s ease; }
-#overlay.active { opacity: 1; background: rgba(0,0,0,0.4); pointer-events: auto; }
-#message { color: white; font-size: 2rem; font-weight: bold; text-align: center; background: rgba(0,0,0,0.6); padding: 20px 40px; border-radius: 12px; }
-img{ border-radius:12px; }
+body, html {
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	overscroll-behavior: none;
+}
+canvas {
+    image-rendering: pixelated;
+	image-rendering: crisp-edges;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor;
+	touch-action: none;
+	user-select: none; 
+	-webkit-user-select: none; 
+	-webkit-touch-callout: none;
+}

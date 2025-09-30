@@ -1,21 +1,49 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Pointed anime covers</title>
-		<meta charset="utf-8">
-		<link rel="icon" href="favicon.ico">
-		<link rel="stylesheet" href="styles.css">
-	</head>
-	<body>
-		<canvas id = "can"></canvas><br>
-		<div id="inputBox"><input id="guess" placeholder="Write the anime..." autocomplete="off"><button id="check">Guess</button></div>
-		<div id="suggestions"></div>
-		
-		<div id="overlay">
-			<div id="message"></div>
-		</div>
-		
-		<script src = "js/pointllism.js"></script>
-		<script src = "js/main.js"></script>
-	</body>
-</html>
+<link rel="stylesheet" href="styles.css">
+<canvas id="can"></canvas>
+
+<script src="code/global/globalvariables.js"></script>
+<script src="code/global/globalfunctions.js"></script>
+<script src="code/global/gameloop.js"></script>
+<script src="code/screen/images.js"></script>
+<script src="code/screen/screen.js"></script>
+<script src="code/screen/menus/button.js"></script>
+<script src="code/screen/menus/menu.js"></script>
+<script src="code/screen/menus/curtain.js"></script>
+<script src="code/screen/menus/initMenu.js"></script>
+<script src="code/screen/menus/pauseMenu.js"></script>
+<script src="code/screen/menus/gameMenu.js"></script>
+<script src="code/screen/menus/gameOverMenu.js"></script>
+<script src="code/board/board.js"></script>
+<script src="code/board/generation.js"></script>
+<script src="code/board/formations/formations.js"></script>
+<script src="code/board/formations/formations_level_0.js"></script>
+<script src="code/board/formations/formations_level_1.js"></script>
+<script src="code/board/formations/formations_level_2.js"></script>
+<script src="code/pieces/piece.js"></script>
+<script src="code/pieces/king.js"></script>
+<script src="code/pieces/pawn.js"></script>
+<script src="code/pieces/rook.js"></script>
+<script src="code/pieces/bishop.js"></script>
+<script src="code/pieces/horse.js"></script>
+<script src="code/pieces/queen.js"></script>
+<script src="code/player/player.js"></script>
+<script src="code/player/pc_controls.js"></script>
+<script src="code/player/mobile_controls.js"></script>
+<script>
+initCanvas()
+
+GameReset();
+
+function main(now){
+	if(!lastTime) lastTime = now;
+    const deltaTime = (now - lastTime) / 1000;
+    lastTime = now;
+	
+	fps = 1 / deltaTime;
+	
+	GameLoop(deltaTime);
+    requestAnimationFrame(main);
+}
+
+requestAnimationFrame(main);
+</script>
