@@ -11,30 +11,14 @@ function navy(x,y){
 		board.addPiece(pawns[i])
 	}
 }
-function rook_fall(a,b){
-	for(var i = a; i<b; i++)board.addPiece(new Rook(i,15+(i - a) * 2))
-}
-function rook_fall_reverse(a,b){
-	for(var i = a; i>=b; i--)board.addPiece(new Rook(i,15+(a - i) * 2))
-}
-function randomFall(){
-	if(Math.random() < 0.5){
-		const a = Math.floor(Math.random() * (board.size - 3));
-		rook_fall(a,a+3)
-	}else{
-		const a = 2+Math.floor(Math.random() * (board.size - 2));
-		rook_fall_reverse(a,a-2)
-	}
-}
-function great_fall(){
-	const rnd = Math.floor(Math.random() * board.size)
-	if(rnd <= Math.floor(board.size / 2)){
-		for(var i = 0; i<board.size; i++){
-			if(i != rnd)board.addPiece(new Rook(i, 15 + i))
+function great_fall(mult=1, h=10){
+	if(Math.random() <= 0.5){
+		for(let i = 0; i<board.size; i++){
+			AddTimeEvent(()=>{board.addPiece(new Rook(i, h))},111*mult*i)
 		}
 	}else{
-		for(var i = 0; i<board.size; i++){
-			if(i != rnd)board.addPiece(new Rook(i, 15 + (board.size - i)))
+		for(let i = 0; i<board.size; i++){
+			AddTimeEvent(()=>{board.addPiece(new Rook(board.size-1-i, h))},111*mult*i)
 		}
 	}
 }
@@ -45,5 +29,12 @@ appendFormation(2, "navy", ()=>{
 
 appendFormation(2, "intel_horse", ()=>{
 	board.addPiece(new IntelHorse(2, 15));
+	board.addPiece(new IntelHorse(Math.floor((board.size)/2), 15));
 	board.addPiece(new IntelHorse(board.size-3, 15));
+})
+
+appendFormation(2, "the_great_fall", ()=>{
+	lock_spawn = true;
+	great_fall(2,15);
+	AddTimeEvent(()=>{lock_spawn = false;},2000)
 })

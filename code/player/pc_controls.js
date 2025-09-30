@@ -6,17 +6,16 @@ const keys = {
 }
 
 document.onkeydown = function(e){
-    if (e.key === "ArrowUp" || e.keyCode === 87) 	keys.up = true;
-    if (e.key === "ArrowDown" || e.keyCode === 83) 	keys.down = true;
-    if (e.key === "ArrowLeft" || e.keyCode === 65) 	keys.left = true;
-    if (e.key === "ArrowRight" || e.keyCode === 68) keys.right = true;
+    if (e.key === "ArrowUp" || e.key === "w" || e.key === "W") 		keys.up = true;
+    if (e.key === "ArrowDown" || e.key === "s" || e.key === "S") 	keys.down = true;
+    if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") 	keys.left = true;
+    if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") 	keys.right = true;
 };
 document.onkeyup = function(e){
-    if (e.key === "ArrowUp" || e.keyCode === 87) 	keys.up = false;
-    if (e.key === "ArrowDown" || e.keyCode === 83) 	keys.down = false;
-    if (e.key === "ArrowLeft" || e.keyCode === 65) 	keys.left = false;
-    if (e.key === "ArrowRight" || e.keyCode === 68) keys.right = false;
-    //if (e.keyCode === 32) timestopped = !timestopped;
+    if (e.key === "ArrowUp" || e.key === "w" || e.key === "W") 		keys.up = false;
+    if (e.key === "ArrowDown" || e.key === "s" || e.key === "S") 	keys.down = false;
+    if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") 	keys.left = false;
+    if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") 	keys.right = false;
 };
 
 function pc_controls(){

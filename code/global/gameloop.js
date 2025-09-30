@@ -1,7 +1,7 @@
 function GameUpdate(deltaTime){
 	if(board){
-		board.update(deltaTime);
 		movePlayer();
+		board.update(deltaTime);
 		updateScore();
 	}
 }
@@ -10,7 +10,8 @@ function GameDraw(deltaTime){
 	board.draw();
 	drawControls();
 	drawScore();
-	drawFps();
+	drawHighScore();
+	//drawFps();
 }
 function GameReset(){
 	player = null;
@@ -21,12 +22,16 @@ function GameReset(){
 	timestopped = false;
 	lastTime = 0;
 	
-	spawnrate = 5;
 	difficulty = 0;
+	spawnrate = formations[difficulty].spawnrate;
+	lock_spawn = false;
 	lastGenerated = -1;
+	
+	ResetTimeEvents();
 	
 	board.setCenterPiece(player);
 	board.addPiece(player);
+	for(var i = 0; i<board.size; i++) board.addPiece(new ReverseStillPawn(i, -12))
 }
 function GameLoop(deltaTime){
 	clearCanvas();
@@ -35,6 +40,7 @@ function GameLoop(deltaTime){
 			break;
 		case GAME_STATES.GAME:
 			generate();
+			TestTimeEvents(deltaTime);
 			GameUpdate(deltaTime);
 			GameDraw(deltaTime);
 			GameMenu.show();

@@ -1,8 +1,8 @@
 const formations = {
 	0:{ advance: 0, spawnrate: 10, nextlevel: 0.5, },
-	0.5:{ advance: 50, spawnrate: 5, nextlevel: 1, },
-	1:{ advance: 100, spawnrate: 7, nextlevel: 2, },
-	2:{ advance: 300, spawnrate: 15, nextlevel: null, }
+	0.5:{ advance: 25, spawnrate: 5, nextlevel: 1, },
+	1:{ advance: 200, spawnrate: 7, nextlevel: 2, },
+	2:{ advance: 400, spawnrate: 15, nextlevel: null, }
 };
 function appendFormation(level, name, send_formation){
 	if(!formations[level].formation_list) formations[level].formation_list = [];

@@ -15,6 +15,7 @@ let actualGameState = GAME_STATES.PAUSE_MENU;
 let player;
 let score;
 let bestY;
+let bestScoreAllTime = parseInt(localStorage.getItem("bestScoreAllTime")) || 0;
 const mobileControlType = { pad:0, swipe:1, }
 let mobileType = mobileControlType.pad;
 let buffer_toggle = !isInMobile || mobileType == mobileControlType.swipe;
@@ -30,3 +31,4 @@ const globalXValues = 4;
 let spawnrate;
 let difficulty;
 let lastGenerated;
+let lock_spawn;

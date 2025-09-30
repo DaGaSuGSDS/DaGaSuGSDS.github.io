@@ -87,9 +87,6 @@ class Piece {
                 this.x = this.targetX;
                 this.y = this.targetY;
                 this.progress = 1;
-				if(buffer_toggle) this.testMove(this.nextX, this.nextY)
-				this.nextX = 0;
-				this.nextY = 0;
             }
         }
     }

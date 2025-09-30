@@ -11,6 +11,12 @@ function updateScore(){
     if(player.y < bestY){
         score += 10 * (difficulty+1);
         bestY = player.y;
+		
+		bestScoreAllTime = parseInt(localStorage.getItem("bestScoreAllTime")) || 0;
+        if(score > bestScoreAllTime){
+            localStorage.setItem("bestScoreAllTime", score);
+			bestScoreAllTime = score;
+        }
     }
 }
 
@@ -24,4 +30,9 @@ function drawFps(){
     ctx.fillStyle = "black";
     ctx.font = ""+Math.round(realTextSize * proportion)+"px consolas";
     ctx.fillText("FPS: "+Math.round(fps), 0, -c.height/2 + 40);
+}
+function drawHighScore(){
+    ctx.fillStyle = "black";
+    ctx.font = ""+Math.round(realTextSize * proportion)+"px consolas";
+    ctx.fillText("HighScore: "+bestScoreAllTime, 0, -c.height/2 + 40);
 }

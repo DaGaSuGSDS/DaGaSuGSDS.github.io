@@ -14,10 +14,6 @@ appendFormation(0, "bouncing_bishop_down", ()=>{
 	board.addPiece(new Bishop(Math.floor(Math.random() * board.size), 10));
 })
 
-appendFormation(0.5, "not_inteligent_horse_down", ()=>{
-	board.addPiece(new Horse(Math.floor(Math.random() * board.size), 10));
-})
-
 appendFormation(0.5, "pawns_going_down", ()=>{
 	linkedPawnsFormation(3,6)
 })

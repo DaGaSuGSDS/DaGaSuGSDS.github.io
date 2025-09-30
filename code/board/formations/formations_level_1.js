@@ -15,8 +15,8 @@ appendFormation(1, "two_parallel_towers_going_down", ()=>{
 
 appendFormation(1, "bouncing_bishops", ()=>{
 	const a = Math.random() >= 0.5 ? 0 : 1;
-	board.addPiece(new Bishop((board.size-1) * (1 - a), 8));
-	board.addPiece(new Bishop((board.size-1) * (a), 7));
+	board.addPiece(new Bishop((board.size-1) * (1 - a), 16));
+	board.addPiece(new Bishop((board.size-1) * (a), 15));
 })
 
 appendFormation(1, "intel_horse", ()=>{
